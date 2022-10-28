@@ -38,14 +38,22 @@
 
     
 }
+strong{
+    font-weight: 600
+}
 .people-icon{
     margin-right: 12px;
 }
-
+.private_message{
+    background-color:purple ;
+}
 .message{
     background-color: white;
 }
 
+.status {
+    background-color: #dcdcdcdc
+}
 .messege-text{
     font-family:"Roboto";
     font-style: normal;
