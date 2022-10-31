@@ -1,15 +1,30 @@
 let Messages = [];
 let FinalMessege = ""
+CheckingList = [];
+
+
+const MessagesList = document.querySelector('.content-container');
+MessagesList.innerHTML="";
+
+
 
 
 const UserName = prompt("Digite o seu nome")
 const User = {name: UserName};
+const PromisseUserName = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", User)
+PromisseUserName.then(UserLogin)
+PromisseUserName.catch(FailedUserLogin)
 
-function UserLogin(){
-    const PromisseUserName = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", User)
-    PromisseUserName.catch(UserLogin)
+
+function UserLogin(){   
+    FetchChat()
 }
-UserLogin()
+
+function FailedUserLogin(){
+    alert("Esse nome já está sendo usado")
+    window.location.reload()
+}
+
 
 
 setInterval (function StayLogged(){
@@ -29,10 +44,11 @@ setInterval (function FetchChat(){
     Promisse.then(ValidResponse)
     }, 3000);
 
+
 function ValidResponse(response){
     Messages = response.data;
     RenderChat();
-    
+    ScrollToLastMessage()
 }
 
 
@@ -44,7 +60,6 @@ function RenderChat(){
 
 
     const MessagesList = document.querySelector('.content-container');
-    MessagesList.lastElementChild.scrollIntoView();
     MessagesList.innerHTML="";
 
     for (let i = 0; i < Messages.length; i++){
@@ -77,6 +92,15 @@ function RenderChat(){
     }
     
 
+
+
+
+    function ScrollToLastMessage(){
+
+    MessagesList.lastElementChild.scrollIntoView({behavior:"smooth"});
+
+    }
+
 function SendMessage(){
     let MessageText = document.querySelector("input").value
 
@@ -88,13 +112,17 @@ function SendMessage(){
         type: "message"
     }
     const PromisseMessageSent = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages",SentMessage)
+    PromisseMessageSent.then(RenderChat)
     document.querySelector("input").value=""
 }
 
 
+function EnterSendMessage(){
+    const input = document.querySelector("input");
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            document.querySelector("button").click();
+        }
+        });
 
-
-
-
-
-
+    }

@@ -45,7 +45,7 @@ strong{
     margin-right: 12px;
 }
 .private_message{
-    background-color:purple ;
+    background-color:pink ;
 }
 .message{
     background-color: white;
@@ -106,4 +106,9 @@ input:focus{
 
 input:focus::placeholder {
     color: transparent;
+}
+button{
+    background: none;
+    border: none;
+
 }
