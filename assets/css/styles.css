@@ -2,7 +2,7 @@
 
 
 .body{
-    background: gray;
+    background: white;
 }
 
 .box-all-container{
@@ -16,11 +16,10 @@
 .content-container{
     height: 500px;
     width: 375px;
-    background-color: #e5e5e5;
-    border: solid;
-    border-width: 1px;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     overflow: auto;
     list-style: none;
+    background-color: whitesmoke;
 
 
 }
@@ -28,13 +27,12 @@
 .nav-container{
     width: 375px;
     height: 80px;
-    background-color: red;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: solid;
-    border-width: 1px;
     background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
 
     
 }
@@ -72,9 +70,7 @@ strong{
     background-color: white;
     align-items: center;
     justify-content: space-between;
-    border: solid;
-    border-width: 1px;
-}
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);}
 button{
     margin-right: 12px;
 }
@@ -111,4 +107,8 @@ button{
     background: none;
     border: none;
 
+}
+
+li{
+    line-break: anywhere;
 }

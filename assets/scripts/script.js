@@ -17,7 +17,6 @@ PromisseUserName.catch(FailedUserLogin)
 
 
 function UserLogin(){   
-    FetchChat()
 }
 
 function FailedUserLogin(){
@@ -52,12 +51,7 @@ function ValidResponse(response){
 }
 
 
-
-
-
-
 function RenderChat(){
-
 
     const MessagesList = document.querySelector('.content-container');
     MessagesList.innerHTML="";
@@ -103,8 +97,6 @@ function RenderChat(){
 
 function SendMessage(){
     let MessageText = document.querySelector("input").value
-
-
     let SentMessage = { 
         from: UserName,
         to: "Todos",
@@ -124,5 +116,4 @@ function EnterSendMessage(){
             document.querySelector("button").click();
         }
         });
-
     }
